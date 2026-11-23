@@ -10,7 +10,7 @@ jobs:
         shell: bash
         run:
           env
-          echo " " |
+          echo " "
           echo "This job is running on an Ubuntu runner."
           echo $0
           echo "{$RUNNER_OS}"
