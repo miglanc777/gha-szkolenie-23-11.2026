@@ -13,6 +13,7 @@ jobs:
           echo "This job is running on an Ubuntu runner."
           echo $0
           echo "{$RUNNER_OS}"
+          echo $SHELL
 
   windows-echo:
     runs-on: windows-latest
