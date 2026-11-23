@@ -1,0 +1,13 @@
+name: 03 – Workflow Runners v2
+
+on:
+  push:
+
+jobs:
+  mac-echo:
+    runs-on: macos-latest
+    steps:
+      - name: Show OS
+        run: |
+          echo "This job is running on an macos runner."
+          echo "$RUNNER_OS"  
