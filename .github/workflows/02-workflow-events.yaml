@@ -11,8 +11,8 @@ on:
       - cron: '0 0 * * *'
 jobs:
   echo:
-  runs-on: ubuntu-latest
-  steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Show the trigger
         run: echo "02-workflow-events ${{ github.event_name }}"
 
