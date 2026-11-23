@@ -11,6 +11,7 @@ jobs:
       - name: Say Hello
         run: echo "Hello, World!"
   echo-goodbye:
+    name: Zegnaj
     runs-on: ubuntu-latest
     steps:
       - name: Say goodbye
