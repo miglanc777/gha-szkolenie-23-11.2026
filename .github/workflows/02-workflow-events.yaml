@@ -4,7 +4,7 @@ on:
 jobs:
   echo:
   runs-on: ubuntu-latest
-    steps:
+  steps:
       - name: Show the trigger
         run: echo "02-workflow-events ${{ github.event_name }}"
 
