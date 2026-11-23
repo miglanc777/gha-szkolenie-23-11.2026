@@ -1,0 +1,1 @@
+# gha-szkolenie-23-11.2026
