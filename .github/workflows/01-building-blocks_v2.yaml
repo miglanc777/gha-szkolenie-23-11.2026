@@ -5,6 +5,7 @@ on:
 
 jobs:
   echo-hello:
+    name: Powitanie
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
