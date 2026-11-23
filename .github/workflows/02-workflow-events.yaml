@@ -6,7 +6,7 @@ on:
     workflow_dispatch:
     pull_request:
       branches:
-        - CW02
+        - CW02 
     schedule:
       - cron: '0 0 * * *'
 jobs:
