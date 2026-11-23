@@ -12,7 +12,7 @@ jobs:
         run: echo "Hello, World!"
   echo-goodbye:
     name: Zegnaj
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Say goodbye
         run: |
