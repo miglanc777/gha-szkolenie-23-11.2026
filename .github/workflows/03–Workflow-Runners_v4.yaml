@@ -1,6 +1,7 @@
 name: "03 – Workflow Runners_v4"
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   ubuntu-echo:
@@ -8,19 +9,18 @@ jobs:
     steps:
       - name: Show OS
         shell: bash
-        run:
+        run: |
           env
-          echo " "
+          echo ""
           echo "This job is running on an Ubuntu runner."
-          echo $0
-          echo "{$RUNNER_OS}"
-          echo $SHELL
+          echo "$0"
+          echo "$RUNNER_OS"
+          echo "$SHELL"
 
   windows-echo:
     runs-on: windows-latest
     steps:
       - name: Show OS
-        #shell: bash
         run: |
           echo "This job is running on a Windows runner."
           echo "$RUNNER_OS"
