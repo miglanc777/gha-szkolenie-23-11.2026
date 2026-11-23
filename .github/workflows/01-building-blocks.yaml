@@ -1,22 +1,21 @@
-name: 01-building-blocks
+name: 01 - Build Blocks
 
-on: 
-workflow_dispatch:
+on:
+  workflow_dispatch:
 
 jobs:
   echo-hello:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Say hello
-        run: echo "Hello World!"
+      - name: Say Hello
+        run: echo "Hello, World!"
   echo-goodbye:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Failed step
+    steps:
+      - name: Failed Step
         run: |
-          echo "I will fail " 
+          echo "I will fail now"
           exit 1
-      - name: Say goodbye
-        run: echo: "Goodbye!"
-       
+      - name: Say Goodbye
+        run: |
+          echo "This step will be skipped if the previous step fails"
