@@ -11,7 +11,8 @@ jobs:
           env
           echo " " |
           echo "This job is running on an Ubuntu runner."
-          echo "$RUNNER_OS"
+          echo $0
+          echo "{$RUNNER_OS}"
 
   windows-echo:
     runs-on: windows-latest
