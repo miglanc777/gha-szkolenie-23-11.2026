@@ -93,7 +93,7 @@ jobs:
           url: http://localhost:${{ env.HOST_PORT }}/assets/wall.jpg
           method: GET
           timeout: 30000
-            - name: Assert image 200
+      - name: Assert image 200
         uses: actions/github-script@v7
         env:
           STATUS: ${{ steps.img.outputs.status }}
