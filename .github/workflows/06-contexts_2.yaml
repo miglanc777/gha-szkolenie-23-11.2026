@@ -10,7 +10,7 @@ on:
         type: string
 
 env:
-  MY_KLUCZYK: ${{ vars.MY_KLUCZYK }}
+  MY_KLUCZYK: ${{ secrets.MY_KLUCZYK }}
 
 jobs:
   pobierz-pogode:
