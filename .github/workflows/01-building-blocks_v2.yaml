@@ -1,23 +1,22 @@
-name: 01 - Build Blocks v2
+name: 01 - Building Blocks v2
 
 on:
+  #push:
   workflow_dispatch:
 
 jobs:
   echo-hello:
-    name: Powitanie
     runs-on: ubuntu-latest
     steps:
-      - name: Say Hello
+      - name: Say hello
         run: echo "Hello, World!"
+
   echo-goodbye:
-    name: Zegnaj
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
+      - name: Successful step
+        run: |
+          echo "I will succeed now"
+          exit 0
       - name: Say goodbye
-        run: |
-          echo "I will fail now"
-          exit 1
-      - name: Say Goodbye
-        run: |
-          echo "This step will be skipped if the previous step fails"
+        run: echo "Goodbye!"
