@@ -92,3 +92,5 @@ on:
 ## React application
 
 See [React + TypeScript setup and commands](README%20copy.md).
+
+## Testing PR workflow
