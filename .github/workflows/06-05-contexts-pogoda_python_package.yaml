@@ -1,0 +1,72 @@
+name: "06-05 - Package Pogoda Info Python"
+run-name: "06-05 - Package Python Pogoda dla ${{ inputs.city }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: "City to get weather info for"
+        required: true
+        default: "Warsaw"
+        type: string
+
+      release_tag:
+        description: "Tag / wersja releasu (np. v1.0.0)"
+        required: true
+        default: "v0.1.0"
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  MY_KLUCZYK: "9ab97aa4e9f307c97e35ae21a2410532"
+
+jobs:
+  pogoda-info:
+    name: "Pobierz informacje o pogodzie + build binarki"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./CWICZENIA/06-context/pogoda_python
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+
+      - name: Build binary with PyInstaller
+        run: |
+          pyinstaller --onefile --name pogoda start.py
+
+      - name: Optional - Run binary and save output to Step Summary
+        run: |
+          ./dist/pogoda "${{ inputs.city }}" "${{ env.MY_KLUCZYK }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload binary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pogoda-linux-amd64
+          path: ./CWICZENIA/06-context/pogoda_python/dist/pogoda
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.release_tag }}
+          name: "Pogoda binary ${{ inputs.release_tag }}"
+          draft: false
+          prerelease: false
+          files: ./CWICZENIA/06-context/pogoda_python/dist/pogoda
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
