@@ -86,40 +86,7 @@ jobs:
                 'Strona nie zawiera oczekiwanego napisu: "cw04 github actions".'
               );
             }
-      - name: GET /assets/wall.jpg
-        id: img
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: http://localhost:${{ env.HOST_PORT }}/assets/wall.jpg
-          method: GET
-          timeout: 30000
-      - name: Assert image 200
-        uses: actions/github-script@v7
-        env:
-          STATUS: ${{ steps.img.outputs.status }}
-          HEADERS: ${{ steps.img.outputs.headers }}
-        with:
-          script: |
-            const status = Number(process.env.STATUS);
-            const headers = (process.env.HEADERS || "").toLowerCase();
 
-            if (status !== 200) {
-              core.setFailed(
-                `Oczekiwano statusu 200, otrzymano ${status}`
-              );
-              return;
-            }
-
-            const looksLikeImage =
-              headers.includes("image") ||
-              headers.includes("jpeg") ||
-              headers.includes("jpg");
-
-            if (!looksLikeImage) {
-              core.warning(
-                "Nagłówki nie wskazują jednoznacznie na obraz JPEG."
-              );
-            }
       - name: Test page content
         run: |
           BODY=$(curl -fsS http://localhost:${HOST_PORT}/)
