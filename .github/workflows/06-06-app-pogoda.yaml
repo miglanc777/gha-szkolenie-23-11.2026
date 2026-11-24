@@ -78,10 +78,10 @@ jobs:
           HUB_IMAGE_BASE="${{ secrets.DOCKERHUB_USERNAME }}/python_pogoda"
 
           echo "Taguję obraz:"
-          echo " - $HUB_IMAGE_BASE:latest"
+          echo " - $HUB_IMAGE_BASE:seda123"
           echo " - $HUB_IMAGE_BASE:$SHORT_SHA"
 
-          docker tag "$LOCAL_IMAGE_NAME" "$HUB_IMAGE_BASE:latest"
+          docker tag "$LOCAL_IMAGE_NAME" "$HUB_IMAGE_BASE:seda123"
           docker tag "$LOCAL_IMAGE_NAME" "$HUB_IMAGE_BASE:$SHORT_SHA"
 
       - name: Push Docker image
