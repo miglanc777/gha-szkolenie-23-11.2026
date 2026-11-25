@@ -6,11 +6,11 @@ on:
       - feature/07-pogoda-api
       - main
 
-  pull_request:
+    pull_request:
     branches:
       - feature/07-pogoda-api
 
-  workflow_dispatch:
+    workflow_dispatch:
 
 env:
   WORKDIR: ./CWICZENIA/07-expressions/pogoda_python_flusk
