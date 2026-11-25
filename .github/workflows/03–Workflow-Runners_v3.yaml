@@ -1,7 +1,9 @@
 name: 03 – Workflow Runners v2
 
 on:
-  # push:
+   push:
+    branches:
+      - CW02
 
 jobs:
   mac-echo:

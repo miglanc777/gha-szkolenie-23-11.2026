@@ -2,6 +2,8 @@ name: "03 – Workflow Runners_v4"
 
 on:
    workflow_dispatch:
+    branches:
+      - CW02
 
 jobs:
   ubuntu-echo:
