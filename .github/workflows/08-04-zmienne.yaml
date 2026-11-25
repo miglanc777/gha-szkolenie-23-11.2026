@@ -145,7 +145,7 @@ jobs:
     timeout-minutes: 5
 
     concurrency:
-      group: pogoda-api-variables-deploy
+      group: ${{ vars.DEPLOY_CONTAINER_NAME }}
       cancel-in-progress: false
 
     env:
