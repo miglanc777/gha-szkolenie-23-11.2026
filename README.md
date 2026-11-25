@@ -3,3 +3,5 @@
 Moja pierwsze zmiana w repo
 
 change 2
+
+skip tests
