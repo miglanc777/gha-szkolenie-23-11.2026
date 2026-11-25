@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - feature/06-pogoda-api
-      - main
 
   pull_request:
     branches:
