@@ -2,4 +2,4 @@
 
 Moja pierwsze zmiana w repo
 
-change
+change 2
