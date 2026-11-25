@@ -1,7 +1,7 @@
 name: "03 – Workflow Runners_v4"
 
-on:
-  workflow_dispatch:
+# on:
+  # workflow_dispatch:
 
 jobs:
   ubuntu-echo:
