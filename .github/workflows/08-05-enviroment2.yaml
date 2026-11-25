@@ -435,7 +435,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ vars.IMAGE_TAG }}
         run: |
-          if [ "$IMAGE_TAG" != sedaprod' ]; then
+          if [ "$IMAGE_TAG" != 'sedaprod' ]; then
             echo "::error::Ustaw IMAGE_TAG=sedaprod w Environment prod."
             exit 1
           fi
