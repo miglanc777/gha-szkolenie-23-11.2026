@@ -1,7 +1,7 @@
 # Skopiuj do terraform.tfvars i wpisz własne imię/nazwisko w nazwach zasobów.
-vm_name       = "jan-kowalski-cw02-vm"
-vpc_name      = "jan-kowalski-cw02-vpc"
-firewall_name = "jan-kowalski-cw02-firewall"
+vm_name       = "seda-cw02-vm"
+vpc_name      = "seda-cw02-vpc"
+firewall_name = "seda-cw02-firewall"
 
 region   = "fra1"
 vm_image = "ubuntu-24-04-x64"
