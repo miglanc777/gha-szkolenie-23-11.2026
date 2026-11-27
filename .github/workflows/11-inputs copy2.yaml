@@ -1,0 +1,51 @@
+name: "11 – Working with Inputs_v2"
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Pomiń wdrożenie i wyświetl jedynie wynik budowania"
+        required: false
+        default: false
+        type: boolean
+
+      target:
+        description: "Które środowisko ma być celem workflow"
+        required: true
+        type: environment
+
+      tag:
+        description: "Wydanie, z którego ma nastąpić budowa i wdrożenie"
+        required: false
+        default: v3
+        type: choice
+        options:
+          - v1
+          - v2
+          - v3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Build
+        run: echo "Budowanie z tagu ${{ inputs.tag }}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    environment:
+      name: ${{ inputs.target }}
+
+    steps:
+      - name: Validate release
+        run: |
+          if [ "${{ inputs.target }}" = "prod" ] && [ "${{ inputs.tag }}" != "v3" ]; then
+            echo "::error::Na produkcję można wdrażać wyłącznie wersję v3"
+            exit 1
+          fi
+
+      - name: Deploy
+        run: echo "Wdrażanie do ${{ inputs.target }}"
